@@ -1,0 +1,221 @@
+{
+  "kind": "synthetic offline protocol evidence",
+  "extension": "0.1.9",
+  "responseOutputs": {
+    "toolTurn": [
+      {
+        "type": "reasoning",
+        "id": "rs-before-call",
+        "summary": [],
+        "encrypted_content": "synthetic-encrypted-rs-before-call"
+      },
+      {
+        "type": "message",
+        "id": "progress",
+        "role": "assistant",
+        "phase": "commentary",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Reading the file.",
+            "annotations": []
+          }
+        ]
+      },
+      {
+        "type": "function_call",
+        "id": "fc-example",
+        "call_id": "call-example",
+        "name": "read_file",
+        "namespace": "vscode",
+        "arguments": "{\"path\":\"example.txt\"}",
+        "status": "completed"
+      },
+      {
+        "type": "reasoning",
+        "id": "rs-after-call",
+        "summary": [],
+        "encrypted_content": "synthetic-encrypted-rs-after-call"
+      }
+    ],
+    "textTurn": [
+      {
+        "type": "reasoning",
+        "id": "rs-text-answer",
+        "summary": [],
+        "encrypted_content": "synthetic-encrypted-rs-text-answer"
+      },
+      {
+        "type": "message",
+        "id": "answer",
+        "role": "assistant",
+        "phase": "final_answer",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "The file contains the expected value.",
+            "annotations": []
+          }
+        ]
+      }
+    ]
+  },
+  "toolContinuationInput": [
+    {
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Follow the host instructions."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Read example.txt."
+        }
+      ]
+    },
+    {
+      "type": "reasoning",
+      "id": "rs-before-call",
+      "summary": [],
+      "encrypted_content": "synthetic-encrypted-rs-before-call"
+    },
+    {
+      "type": "message",
+      "id": "progress",
+      "role": "assistant",
+      "phase": "commentary",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "Reading the file.",
+          "annotations": []
+        }
+      ]
+    },
+    {
+      "type": "function_call",
+      "id": "fc-example",
+      "call_id": "call-example",
+      "name": "read_file",
+      "namespace": "vscode",
+      "arguments": "{\"path\":\"example.txt\"}",
+      "status": "completed"
+    },
+    {
+      "type": "reasoning",
+      "id": "rs-after-call",
+      "summary": [],
+      "encrypted_content": "synthetic-encrypted-rs-after-call"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "call-example",
+      "output": "expected value"
+    }
+  ],
+  "followUpInput": [
+    {
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Follow the host instructions."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Read example.txt."
+        }
+      ]
+    },
+    {
+      "type": "reasoning",
+      "id": "rs-before-call",
+      "summary": [],
+      "encrypted_content": "synthetic-encrypted-rs-before-call"
+    },
+    {
+      "type": "message",
+      "id": "progress",
+      "role": "assistant",
+      "phase": "commentary",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "Reading the file.",
+          "annotations": []
+        }
+      ]
+    },
+    {
+      "type": "function_call",
+      "id": "fc-example",
+      "call_id": "call-example",
+      "name": "read_file",
+      "namespace": "vscode",
+      "arguments": "{\"path\":\"example.txt\"}",
+      "status": "completed"
+    },
+    {
+      "type": "reasoning",
+      "id": "rs-after-call",
+      "summary": [],
+      "encrypted_content": "synthetic-encrypted-rs-after-call"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "call-example",
+      "output": "expected value"
+    },
+    {
+      "type": "reasoning",
+      "id": "rs-text-answer",
+      "summary": [],
+      "encrypted_content": "synthetic-encrypted-rs-text-answer"
+    },
+    {
+      "type": "message",
+      "id": "answer",
+      "role": "assistant",
+      "phase": "final_answer",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "The file contains the expected value.",
+          "annotations": []
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Use this result in the next step."
+        }
+      ]
+    }
+  ],
+  "tokenCounts": {
+    "utf8Bytes": 40960,
+    "string": 10240,
+    "message": 10264,
+    "textAttachment": 10272,
+    "unicode": 3
+  }
+}

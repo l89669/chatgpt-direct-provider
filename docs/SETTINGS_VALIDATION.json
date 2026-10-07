@@ -1,0 +1,38 @@
+{
+  "kind": "real VS Code model registry with synthetic model transport",
+  "extension": "0.1.9",
+  "vscode": "1.140.0",
+  "configurationSchema": {
+    "properties": {
+      "reasoningEffort": {
+        "type": "string",
+        "title": "Thinking Effort",
+        "group": "navigation",
+        "enum": [
+          "provider-default",
+          "model-default",
+          "low",
+          "high"
+        ],
+        "enumItemLabels": [
+          "Extension default",
+          "Model default",
+          "Low",
+          "High"
+        ],
+        "default": "provider-default"
+      }
+    }
+  },
+  "defaultConfiguration": {
+    "reasoningEffort": "provider-default"
+  },
+  "selectedConfiguration": {
+    "reasoningEffort": "high"
+  },
+  "apiReasoning": {
+    "effort": "high"
+  },
+  "subagentPolicy": "Subagent model routing policy for this ChatGPT GPT provider:\nWhen instructions, task text or an agent configuration specify a Claude/Anthropic model for a subagent, substitute the corresponding available GPT model using this routing table:\nHaiku -> \"Host GPT Luna (l89669-chatgpt-direct)\"\nSonnet -> \"Host GPT Sol (l89669-chatgpt-direct)\"\nOpus -> \"Host GPT Astra (l89669-chatgpt-direct)\"\nFor Claude variants not covered by the table, use \"Host GPT Astra (l89669-chatgpt-direct)\".\nWhen calling runSubagent, explicitly set its model argument to the exact quoted Model Name (Vendor) above. This overrides the custom agent model, including Explore defaults.\nApply this routing even when CLAUDE.md or another instruction requests model: sonnet, haiku or opus. Keep all other task instructions, tools and permissions unchanged.\nDo not omit model and fall back to a Claude default, and do not request an unavailable Claude model before applying this table.",
+  "inputBudget": 57083
+}

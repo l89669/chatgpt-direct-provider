@@ -1,0 +1,144 @@
+{
+  "kind": "synthetic continuation evidence; no network or actual tool execution",
+  "extension": "0.1.9",
+  "samples": 2,
+  "secondRequestInput": [
+    {
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Use host tools to complete the request."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Review the latest remote commit."
+        }
+      ]
+    },
+    {
+      "type": "reasoning",
+      "id": "planning",
+      "summary": [],
+      "encrypted_content": "synthetic-reasoning"
+    },
+    {
+      "type": "message",
+      "id": "preamble",
+      "role": "assistant",
+      "phase": "commentary",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "I will inspect the remote commit."
+        }
+      ]
+    }
+  ],
+  "hostText": "I will inspect the remote commit.",
+  "hostCalls": [
+    {
+      "callId": "commit-call",
+      "name": "run_terminal",
+      "input": {
+        "command": "git log -1"
+      }
+    }
+  ],
+  "states": [
+    {
+      "at": "2026-10-07T05:13:04.080Z",
+      "httpStatus": 200,
+      "contentType": "text/event-stream",
+      "contentEncoding": "identity",
+      "wireFormat": "sse",
+      "model": "synthetic-model",
+      "reasoningEffort": "model-default",
+      "reasoningEffortSource": "extension-default",
+      "modelSamples": 1,
+      "responseId": "synthetic-1",
+      "endTurn": false,
+      "messagePhases": [
+        "commentary"
+      ],
+      "toolCalls": 0,
+      "usage": null,
+      "status": "continuing",
+      "continuationReason": "end_turn_false"
+    },
+    {
+      "at": "2026-10-07T05:13:04.081Z",
+      "httpStatus": 200,
+      "contentType": "text/event-stream",
+      "contentEncoding": "identity",
+      "wireFormat": "sse",
+      "model": "synthetic-model",
+      "reasoningEffort": "model-default",
+      "reasoningEffortSource": "extension-default",
+      "modelSamples": 2,
+      "responseId": "synthetic-2",
+      "endTurn": false,
+      "messagePhases": [],
+      "toolCalls": 1,
+      "usage": null,
+      "status": "completed",
+      "completionKind": "tool_calls"
+    }
+  ],
+  "replayedHistory": [
+    {
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Use host tools to complete the request."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Review the latest remote commit."
+        }
+      ]
+    },
+    {
+      "type": "reasoning",
+      "id": "planning",
+      "summary": [],
+      "encrypted_content": "synthetic-reasoning"
+    },
+    {
+      "type": "message",
+      "id": "preamble",
+      "role": "assistant",
+      "phase": "commentary",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "I will inspect the remote commit."
+        }
+      ]
+    },
+    {
+      "type": "function_call",
+      "id": "function-item",
+      "call_id": "commit-call",
+      "name": "run_terminal",
+      "namespace": "vscode",
+      "arguments": "{\"command\":\"git log -1\"}"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "commit-call",
+      "output": "synthetic host tool result"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Direct Plan Bridge 0.1.9 package validation
+Archive CRCs, manifest version and runtime/source equality verified.
+Packaged real-host assistant-history evidence uses string content with an empty replay cache.
+Existing replay, continuation, prompt, thinking effort and catalog snapshot evidence verified.
+164 offline cases passed. User confirmed live GPT-6.1-Sol and GPT-6-Astra inference on 0.1.9.
+Runtime changes from 0.1.8: version, uncached assistant text encoding, rejected input structure diagnostics.

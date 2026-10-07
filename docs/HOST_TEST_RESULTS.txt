@@ -1,0 +1,10 @@
+Direct Plan Bridge 0.1.9 — real VS Code host validation
+VS Code 1.140.0; synthetic model transport.
+
+REAL ASSISTANT HISTORY: native assistant text with an empty replay cache is encoded as a string; user and developer input parts remain input_text.
+REAL MODEL CONFIGURATION: native model registry and sendRequest forwarded reasoningEffort=high to modelConfiguration; API payload used reasoning.effort=high and the available GPT subagent routing policy. Synthetic inference.
+REAL PROMPT CONFIGURATION: native VS Code setting update replaced the developer prompt on the next request; empty setting disabled injection; no reload. Synthetic inference.
+REAL CATALOG SNAPSHOT: gpt-6.1-sol missing from synthetic live catalog was added from the bundled snapshot, discovered by the native model registry, and sent as the request model with effort high. Synthetic inference.
+REAL NATIVE PROVIDER: commentary with end_turn=false continued to a second model sample, then emitted the actual VS Code ToolCallPart before resolving. Synthetic model responses; no live inference.
+REAL EXTENSION HOST 1.140.0: System=3, User=1, Assistant=2; native messages converted to developer/user/tool-call/tool-result correctly. Activation, commands and unsigned discovery passed. Live OAuth/inference NOT tested.
+[main 2026-10-07T05:13:03.604Z] Extension host with pid 11996 exited with code: 0, signal: unknown.

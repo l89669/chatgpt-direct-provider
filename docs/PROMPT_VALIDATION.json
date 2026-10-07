@@ -1,0 +1,9 @@
+{
+  "extension": "0.1.9",
+  "vscode": "1.140.0",
+  "setting": "chatgptDirect.subagentDeveloperPrompt",
+  "customTemplate": "Host custom developer instruction. Parent: {{parentModel}}",
+  "renderedPrompt": "Host custom developer instruction. Parent: \"Host GPT Astra (l89669-chatgpt-direct)\"",
+  "emptyDisablesInjection": true,
+  "updatedWithoutReload": true
+}

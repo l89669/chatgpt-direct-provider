@@ -1,0 +1,38 @@
+{
+  "extension": "0.1.9",
+  "vscode": "1.140.0",
+  "kind": "actual native messages, empty replay cache",
+  "input": [
+    {
+      "role": "developer",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Follow the host instructions."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Read the file."
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Previous model answer."
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Continue with Astra."
+        }
+      ]
+    }
+  ]
+}

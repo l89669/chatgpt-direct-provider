@@ -1,0 +1,158 @@
+{
+  "name": "chatgpt-direct-provider",
+  "displayName": "Direct Plan Bridge — ChatGPT",
+  "description": "Unofficial native VS Code model provider using the public Sign in with ChatGPT plan-usage API. No Codex runtime or credential import.",
+  "version": "0.1.9",
+  "publisher": "l89669",
+  "engines": {
+    "vscode": "^1.138.0",
+    "node": ">=22"
+  },
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "keywords": [
+    "chatgpt",
+    "language-models",
+    "siwc",
+    "copilot",
+    "provider"
+  ],
+  "main": "./src/extension.js",
+  "extensionKind": [
+    "ui"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "Only enable model access in trusted workspaces."
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "authentication": [
+      {
+        "id": "l89669-chatgpt-direct",
+        "label": "ChatGPT · Direct Plan Bridge"
+      }
+    ],
+    "languageModelChatProviders": [
+      {
+        "vendor": "l89669-chatgpt-direct",
+        "displayName": "ChatGPT Plan · Direct",
+        "managementCommand": "chatgptDirect.manage"
+      }
+    ],
+    "commands": [
+      {
+        "command": "chatgptDirect.signIn",
+        "title": "ChatGPT Direct: Continue with ChatGPT"
+      },
+      {
+        "command": "chatgptDirect.manage",
+        "title": "ChatGPT Direct: Manage Accounts / 管理账户"
+      },
+      {
+        "command": "chatgptDirect.refreshModels",
+        "title": "ChatGPT Direct: Refresh Models / 刷新模型"
+      },
+      {
+        "command": "chatgptDirect.reasoning",
+        "title": "ChatGPT Direct: Configure Reasoning Effort / 推理强度"
+      },
+      {
+        "command": "chatgptDirect.signOut",
+        "title": "ChatGPT Direct: Sign Out / 退出当前账户"
+      },
+      {
+        "command": "chatgptDirect.usage",
+        "title": "ChatGPT Direct: Open ChatGPT Usage / 用量管理"
+      },
+      {
+        "command": "chatgptDirect.diagnostics",
+        "title": "ChatGPT Direct: Show Diagnostics / 诊断"
+      },
+      {
+        "command": "chatgptDirect.testConnection",
+        "title": "ChatGPT Direct: Test Connection (Uses Plan Usage) / 测试连接"
+      },
+      {
+        "command": "chatgptDirect.utilitySettings",
+        "title": "ChatGPT Direct: Configure VS Code Utility Models"
+      }
+    ],
+    "configuration": {
+      "title": "Direct Plan Bridge",
+      "properties": {
+        "chatgptDirect.reasoningEffort": {
+          "type": "string",
+          "default": "model-default",
+          "scope": "application",
+          "description": "Use model-default or an effort supported by the selected model catalog. Unsupported levels are rejected, not silently downgraded."
+        },
+        "chatgptDirect.requestTimeoutSeconds": {
+          "type": "integer",
+          "default": 1800,
+          "minimum": 60,
+          "maximum": 7200,
+          "scope": "application",
+          "description": "Total inference deadline. Cancellation immediately stops the stream."
+        },
+        "chatgptDirect.contextWindowFallback": {
+          "type": "integer",
+          "default": 65536,
+          "minimum": 8192,
+          "maximum": 2097152,
+          "scope": "application",
+          "description": "Conservative context capacity ONLY when /v1/models omits capacity. Not a claim about the model's actual limit."
+        },
+        "chatgptDirect.outputReserveFallback": {
+          "type": "integer",
+          "default": 8192,
+          "minimum": 1024,
+          "maximum": 131072,
+          "scope": "application",
+          "description": "Output capacity reserved in VS Code accounting when catalog omits it. max_output_tokens is never sent to the SIWC endpoint."
+        },
+        "chatgptDirect.maxRequestMiB": {
+          "type": "integer",
+          "default": 32,
+          "minimum": 1,
+          "maximum": 128,
+          "scope": "application",
+          "description": "Local request-size safeguard. Oversized requests fail explicitly; content is never silently truncated."
+        },
+        "chatgptDirect.subagentDeveloperPrompt": {
+          "type": "string",
+          "default": "Subagent model routing policy for this ChatGPT GPT provider:\nWhen instructions, task text or an agent configuration specify a Claude/Anthropic model for a subagent, substitute the corresponding available GPT model using this routing table:\n{{modelRoutes}}\nFor Claude variants not covered by the table, use {{parentModel}}.\nWhen calling runSubagent, explicitly set its model argument to the exact quoted Model Name (Vendor) above. This overrides the custom agent model, including Explore defaults.\nApply this routing even when CLAUDE.md or another instruction requests model: sonnet, haiku or opus. Keep all other task instructions, tools and permissions unchanged.\nDo not omit model and fall back to a Claude default, and do not request an unavailable Claude model before applying this table.",
+          "scope": "application",
+          "editPresentation": "multilineText",
+          "markdownDescription": "子 agent 请求附加的 developer 提示词，可直接编辑。`{{modelRoutes}}` 自动填入 Haiku/Luna、Sonnet/Sol、Opus/Astra 的可用模型映射；`{{parentModel}}` 自动填入当前主模型的完整选择器。设为空字符串关闭注入。保存后下一次请求生效。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "node scripts/check.cjs",
+    "test": "node scripts/test.cjs",
+    "test:coverage": "node scripts/test.cjs --coverage",
+    "package": "node scripts/package.cjs",
+    "verify": "npm run check && npm test && npm run package",
+    "test:host": "node scripts/host-smoke.cjs"
+  },
+  "preview": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/l89669/chatgpt-direct-provider.git"
+  },
+  "homepage": "https://github.com/l89669/chatgpt-direct-provider#readme",
+  "bugs": {
+    "url": "https://github.com/l89669/chatgpt-direct-provider/issues"
+  }
+}

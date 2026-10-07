@@ -1,0 +1,55 @@
+{
+  "extension": "0.1.9",
+  "vscode": "1.140.0",
+  "kind": "native model registry with synthetic transport",
+  "selectedModel": "gpt-6.1-sol",
+  "reasoning": {
+    "effort": "high"
+  },
+  "catalogSources": [
+    {
+      "id": "gpt-host-astra",
+      "source": "live"
+    },
+    {
+      "id": "gpt-host-sol",
+      "source": "live"
+    },
+    {
+      "id": "gpt-host-luna",
+      "source": "live"
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-6-astra",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-6-sol",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-6-luna",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "source": "snapshot"
+    },
+    {
+      "id": "gpt-5.5",
+      "source": "snapshot"
+    }
+  ]
+}
